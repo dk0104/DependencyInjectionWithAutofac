@@ -27,5 +27,18 @@ namespace Test
             cut.ExecuteInstanceUnitTestExample();
         }
         
+        [Test]
+        public void LambdaExpExampleExecution()
+        {
+            var cut = new ChoiseOfConstructorExample();
+            cut.LambdaExpressionTestExample();
+        }
+
+        [Test]
+        public void GenericsExampleExecution()
+        {
+            var cut = new ChoiseOfConstructorExample();
+            cut.GenericsExample();
+        }
     }
 }

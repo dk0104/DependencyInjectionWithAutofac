@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Autofac;
 
 namespace DI_Basics
@@ -71,6 +72,27 @@ namespace DI_Basics
         }
     }
 
+    public class Chip
+    {
+        public Chip()
+        {
+            Console.WriteLine("Custom Chip");
+        }
+    }
+
+    public class CustomEngine:IEngine
+    {
+        public CustomEngine(Chip chip)
+        {
+            Console.WriteLine("Custom Engine");
+        }
+        public bool ChipTunning { get; set; }
+        public void StartRunning()
+        {
+            Console.WriteLine($"Is Chip tuned {ChipTunning} RRRRRRRRRRRRRRRRRRR");
+        }
+    }
+
     public class ChoiseOfConstructorExample
     {
         public void ExecuteConstructorExample()
@@ -105,14 +127,26 @@ namespace DI_Basics
             var builder = new ContainerBuilder();
 
             var testCanBus = new TestCanBus();
-            //builder.RegisterType<CanBus>().As<IBus>();
-            builder.RegisterInstance(testCanBus).As<IBus>();
-            builder.RegisterType<FastEngine>().As<IEngine>();
+            builder.RegisterType<CanBus>().As<IBus>();
+            builder.RegisterType<Chip>();
+            builder.Register(c => new CustomEngine(c.Resolve<Chip>())).As<IEngine>();
             //builder.RegisterType<Car>();
             builder.RegisterType<Car>();
             var container = builder.Build();
             var car = container.Resolve<Car>();
             car.Drive();
         }
+
+        public void GenericsExample()
+        {
+            var builder = new ContainerBuilder();
+
+            builder.RegisterGeneric(typeof(List<>)).As(typeof(IList<>));
+            var container = builder.Build();
+            var genList = container.Resolve<IList<int>>();
+            Console.WriteLine(genList.GetType());
+        }
     }
+
+   
 }
