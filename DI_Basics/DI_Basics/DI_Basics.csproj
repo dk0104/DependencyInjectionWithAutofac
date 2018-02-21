@@ -52,6 +52,7 @@
     <Compile Include="ChoiseOfConstructorExample.cs" />
     <Compile Include="IExample.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="PropertiesAndLifeTimeExample.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SimpleRegistration.cs" />
   </ItemGroup>

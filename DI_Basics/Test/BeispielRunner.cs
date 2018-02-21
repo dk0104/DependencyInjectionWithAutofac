@@ -40,5 +40,40 @@ namespace Test
             var cut = new ChoiseOfConstructorExample();
             cut.GenericsExample();
         }
+
+        [Test]
+        public void NamedParameterExampleExecution()
+        {
+            var cut = new PropertiesAndLifeTimeExample();
+            cut.ExecNamedParameterExample();
+        }
+
+        [Test]
+        public void TypedParameterExampleExecution()
+        {
+            var cut = new PropertiesAndLifeTimeExample();
+            cut.ExeTypedParameterExample();
+        }
+
+        [Test]
+        public void NamedPropertiesExampleExecution()
+        {
+            var cut = new PropertiesAndLifeTimeExample();
+            cut.ExecNamedPropertiesExample();
+        }
+
+        [Test]
+        public void AutowiredExampleExecution()
+        {
+            var cut = new PropertiesAndLifeTimeExample();
+            cut.ExecAutowiredPropertiesExample();
+        }
+
+        [Test]
+        public void MethodInjExampleExecution()
+        {
+            var cut = new PropertiesAndLifeTimeExample();
+            cut.ExecMethodInjectionExample();
+        }
     }
 }
