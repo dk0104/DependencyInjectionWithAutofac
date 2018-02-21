@@ -17,7 +17,14 @@ namespace Test
         public void ChoiseConstructorExampleExecution()
         {
             var cut = new ChoiseOfConstructorExample();
-            cut.ExecuteEcample();
+            cut.ExecuteConstructorExample();
+        }
+
+        [Test]
+        public void RegisterInstanceExampleExecution()
+        {
+            var cut = new ChoiseOfConstructorExample();
+            cut.ExecuteInstanceUnitTestExample();
         }
         
     }

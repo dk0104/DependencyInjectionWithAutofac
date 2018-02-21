@@ -47,6 +47,14 @@ namespace DI_Basics
         }
     }
 
+    class TestCanBus:IBus
+    {
+        public void SendSignals()
+        {
+            Console.WriteLine("Ich bin nur ein Stub");
+        }
+    }
+
     public class SlowEngine:IEngine
     {
         public void StartRunning()
@@ -65,7 +73,7 @@ namespace DI_Basics
 
     public class ChoiseOfConstructorExample
     {
-        public void ExecuteEcample()
+        public void ExecuteConstructorExample()
         {
             var builder = new ContainerBuilder();
             builder.RegisterType<CanBus>().As<IBus>();
@@ -75,9 +83,36 @@ namespace DI_Basics
             var container = builder.Build();
             var car = container.Resolve<Car>();
             car.Drive();
-
-
         }
 
+        public void ExecuteInstanceUnitTestExample()
+        {
+            var builder = new ContainerBuilder();
+
+            var testCanBus = new TestCanBus();
+            //builder.RegisterType<CanBus>().As<IBus>();
+            builder.RegisterInstance(testCanBus).As<IBus>();
+            builder.RegisterType<FastEngine>().As<IEngine>();
+            //builder.RegisterType<Car>();
+            builder.RegisterType<Car>();
+            var container = builder.Build();
+            var car = container.Resolve<Car>();
+            car.Drive();
+        }
+
+        public void LambdaExpressionTestExample()
+        {
+            var builder = new ContainerBuilder();
+
+            var testCanBus = new TestCanBus();
+            //builder.RegisterType<CanBus>().As<IBus>();
+            builder.RegisterInstance(testCanBus).As<IBus>();
+            builder.RegisterType<FastEngine>().As<IEngine>();
+            //builder.RegisterType<Car>();
+            builder.RegisterType<Car>();
+            var container = builder.Build();
+            var car = container.Resolve<Car>();
+            car.Drive();
+        }
     }
 }
