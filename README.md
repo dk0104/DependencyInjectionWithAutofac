@@ -32,7 +32,17 @@ Registrierung der Componente
 	* Registrierung von Unterschiedlichen Konstruktoren
 	* Lambda Expression 
 	* Verwendung Eigener Instanzen (Komponente) 
+	* Constructorauswal
+	* Named Parameter
+	* Typed Parameter
+	* Named Properties
+	* Typed Properties
+	* Autowired Properties
+	* Method Injection
 	
+######################################
+Module 
+######################################
  
 
 
